@@ -14,7 +14,8 @@ namespace NopBrasil.Plugin.Misc.NewProducts.Services
 
         public void UpdateProductModel(ProductModel model)
         {
-            if ((!_newProductsSettings.Disable) && (_newProductsSettings.NumberOfDaysAsNew > 0) && (!model.MarkAsNew))
+            bool recentlyCreated = (!model.CreatedOn.HasValue) || (model.CreatedOn.Value.AddMinutes(1).ToUniversalTime() >= DateTime.UtcNow);
+            if ((!_newProductsSettings.Disable) && (_newProductsSettings.NumberOfDaysAsNew > 0) && (!model.MarkAsNew) && (recentlyCreated))
             {
                 model.MarkAsNew = true;
                 model.MarkAsNewStartDateTimeUtc = DateTime.UtcNow;

@@ -14,7 +14,7 @@ namespace NopBrasil.Plugin.Misc.NewProducts.Filter
         public IEnumerable<System.Web.Mvc.Filter> GetFilters(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
         {
             if ((controllerContext.Controller is ProductController) &&
-                ((ValidateActionName("Create", 0, actionDescriptor)) || (ValidateActionName("CopyProduct", 1, actionDescriptor))))
+                ((ValidateActionName("Create", 0, actionDescriptor)) || (ValidateActionName("Edit", 1, actionDescriptor))))
             {
                 return new List<System.Web.Mvc.Filter>() { new System.Web.Mvc.Filter(this, FilterScope.Action, 0) };
             }
