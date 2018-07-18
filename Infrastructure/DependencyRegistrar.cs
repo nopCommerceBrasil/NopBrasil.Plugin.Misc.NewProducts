@@ -1,8 +1,8 @@
 using Autofac;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Nop.Core.Configuration;
 using Nop.Core.Infrastructure;
 using Nop.Core.Infrastructure.DependencyManagement;
-using System.Web.Mvc;
 using NopBrasil.Plugin.Misc.NewProducts.Controllers;
 using NopBrasil.Plugin.Misc.NewProducts.Filter;
 using NopBrasil.Plugin.Misc.NewProducts.Services;

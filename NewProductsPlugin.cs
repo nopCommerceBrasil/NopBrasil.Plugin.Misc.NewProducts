@@ -1,9 +1,7 @@
-using System.Web.Routing;
 using Nop.Core;
 using Nop.Core.Plugins;
 using Nop.Services.Configuration;
 using Nop.Services.Localization;
-using Nop.Services.Media;
 using Nop.Services.Common;
 
 namespace NopBrasil.Plugin.Misc.NewProducts
@@ -12,19 +10,16 @@ namespace NopBrasil.Plugin.Misc.NewProducts
     {
         private readonly ISettingService _settingService;
         private readonly NewProductsSettings _newProductsSettings;
+        private readonly IWebHelper _webHelper;
 
-        public NewProductsPlugin(ISettingService settingService, NewProductsSettings newProductsSettings)
+        public NewProductsPlugin(ISettingService settingService, NewProductsSettings newProductsSettings, IWebHelper webHelper)
         {
             this._settingService = settingService;
             this._newProductsSettings = newProductsSettings;
+            this._webHelper = webHelper;
         }
 
-        public void GetConfigurationRoute(out string actionName, out string controllerName, out RouteValueDictionary routeValues)
-        {
-            actionName = "Configure";
-            controllerName = "MiscNewProducts";
-            routeValues = new RouteValueDictionary { { "Namespaces", "NopBrasil.Plugin.Misc.NewProducts.Controllers" }, { "area", null } };
-        }
+        public override string GetConfigurationPageUrl() => _webHelper.GetStoreLocation() + "Admin/MiscNewProducts/Configure";
 
         public override void Install()
         {

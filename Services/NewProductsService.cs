@@ -1,4 +1,4 @@
-﻿using Nop.Admin.Models.Catalog;
+﻿using Nop.Web.Areas.Admin.Models.Catalog;
 using System;
 
 namespace NopBrasil.Plugin.Misc.NewProducts.Services

@@ -1,6 +1,5 @@
-﻿using System.Web.Mvc;
-using Nop.Web.Framework;
-using Nop.Web.Framework.Mvc;
+﻿using Nop.Web.Framework.Mvc.ModelBinding;
+using Nop.Web.Framework.Mvc.Models;
 
 namespace NopBrasil.Plugin.Misc.NewProducts.Models
 {
@@ -9,15 +8,9 @@ namespace NopBrasil.Plugin.Misc.NewProducts.Models
         public int ActiveStoreScopeConfiguration { get; set; }
 
         [NopResourceDisplayName("Plugins.Misc.NewProducts.Fields.Disable")]
-        [AllowHtml]
         public bool Disable { get; set; }
 
         [NopResourceDisplayName("Plugins.Misc.NewProducts.Fields.NumberOfDaysAsNew")]
-        [AllowHtml]
         public int NumberOfDaysAsNew { get; set; }
-
-        public ConfigurationModel()
-        {
-        }
     }
 }
