@@ -12,7 +12,7 @@ namespace NopBrasil.Plugin.Misc.NewProducts.Services
             this._newProductsSettings = newProductsSettings;
         }
 
-        public void UpdateProductModel(ProductModel model)
+        public void UpdateProductModel(ProductDetailsModel model)
         {
             bool recentlyCreated = (!model.CreatedOn.HasValue) || (model.CreatedOn.Value.AddMinutes(1).ToUniversalTime() >= DateTime.UtcNow);
             if ((!_newProductsSettings.Disable) && (_newProductsSettings.NumberOfDaysAsNew > 0) && (!model.MarkAsNew) && (recentlyCreated))

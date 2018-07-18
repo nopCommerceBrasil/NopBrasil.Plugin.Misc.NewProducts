@@ -4,6 +4,6 @@ namespace NopBrasil.Plugin.Misc.NewProducts.Services
 {
     public interface INewProductsService
     {
-        void UpdateProductModel(ProductModel model);
+        void UpdateProductModel(ProductDetailsModel model);
     }
 }

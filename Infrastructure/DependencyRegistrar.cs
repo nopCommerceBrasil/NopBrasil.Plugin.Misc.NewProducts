@@ -1,10 +1,8 @@
 using Autofac;
-using Microsoft.AspNetCore.Mvc.Filters;
 using Nop.Core.Configuration;
 using Nop.Core.Infrastructure;
 using Nop.Core.Infrastructure.DependencyManagement;
 using NopBrasil.Plugin.Misc.NewProducts.Controllers;
-using NopBrasil.Plugin.Misc.NewProducts.Filter;
 using NopBrasil.Plugin.Misc.NewProducts.Services;
 
 namespace NopBrasil.Plugin.Misc.NewProducts.Infrastructure
@@ -15,7 +13,6 @@ namespace NopBrasil.Plugin.Misc.NewProducts.Infrastructure
         {
             builder.RegisterType<MiscNewProductsController>().AsSelf();
             builder.RegisterType<NewProductsService>().As<INewProductsService>().InstancePerDependency();
-            builder.RegisterType<ProductAdminFilter>().As<IFilterProvider>();
         }
 
         public int Order => 2;
