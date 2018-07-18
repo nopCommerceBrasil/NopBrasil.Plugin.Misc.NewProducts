@@ -17,8 +17,8 @@ namespace NopBrasil.Plugin.Misc.NewProducts.Consumer
 
         public void HandleEvent(ModelPrepared<BaseNopModel> eventMessage)
         {
-            if (eventMessage.Model is ProductDetailsModel)
-                _newProductsService.UpdateProductModel((ProductDetailsModel)eventMessage.Model);
+            if (eventMessage.Model is ProductModel)
+                _newProductsService.UpdateProductModel((ProductModel)eventMessage.Model);
         }
     }
 }
