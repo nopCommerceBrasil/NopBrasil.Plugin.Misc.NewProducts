@@ -5,7 +5,7 @@
     <Company>nopCommerce Brasil</Company> 
     <Authors>nopCommerce Brasil - www.nopcommercebrasil.com - nopcommercebrasil@nopcommercebrasil.com</Authors> 
     <Version>1.00</Version> 
-    <Description>Plugin to mark newly registered products as news</Description> 
+    <Description>Plugin to mark newly registered products as new</Description> 
     <PackageLicenseUrl></PackageLicenseUrl> 
     <PackageProjectUrl>http://www.nopcommercebrasil.com/</PackageProjectUrl> 
     <RepositoryUrl>https://github.com/nopCommerceBrasil/NopBrasil.Plugin.Misc.NewProducts</RepositoryUrl> 
