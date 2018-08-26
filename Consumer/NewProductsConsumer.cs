@@ -1,12 +1,12 @@
 ﻿using Nop.Services.Events;
 using Nop.Web.Framework.Events;
-using Nop.Web.Framework.Mvc.Models;
 using Nop.Web.Areas.Admin.Models.Catalog;
 using NopBrasil.Plugin.Misc.NewProducts.Services;
+using Nop.Web.Framework.Models;
 
 namespace NopBrasil.Plugin.Misc.NewProducts.Consumer
 {
-    public class NewProductsConsumer : IConsumer<ModelPrepared<BaseNopModel>>
+    public class NewProductsConsumer : IConsumer<ModelPreparedEvent<BaseNopModel>>
     {
         private readonly INewProductsService _newProductsService;
 
@@ -15,7 +15,7 @@ namespace NopBrasil.Plugin.Misc.NewProducts.Consumer
             this._newProductsService = newProductsService;
         }
 
-        public void HandleEvent(ModelPrepared<BaseNopModel> eventMessage)
+        public void HandleEvent(ModelPreparedEvent<BaseNopModel> eventMessage)
         {
             if (eventMessage.Model is ProductModel)
                 _newProductsService.UpdateProductModel((ProductModel)eventMessage.Model);

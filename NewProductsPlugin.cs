@@ -11,12 +11,14 @@ namespace NopBrasil.Plugin.Misc.NewProducts
         private readonly ISettingService _settingService;
         private readonly NewProductsSettings _newProductsSettings;
         private readonly IWebHelper _webHelper;
+        private readonly ILocalizationService _localizationService;
 
-        public NewProductsPlugin(ISettingService settingService, NewProductsSettings newProductsSettings, IWebHelper webHelper)
+        public NewProductsPlugin(ISettingService settingService, NewProductsSettings newProductsSettings, IWebHelper webHelper, ILocalizationService localizationService)
         {
             this._settingService = settingService;
             this._newProductsSettings = newProductsSettings;
             this._webHelper = webHelper;
+            this._localizationService = localizationService;
         }
 
         public override string GetConfigurationPageUrl() => _webHelper.GetStoreLocation() + "Admin/MiscNewProducts/Configure";
@@ -30,11 +32,11 @@ namespace NopBrasil.Plugin.Misc.NewProducts
             };
             _settingService.SaveSetting(settings);
 
-            this.AddOrUpdatePluginLocaleResource("Plugins.Misc.NewProducts.Fields.NumberOfDaysAsNew", "Number Of Days As New");
-            this.AddOrUpdatePluginLocaleResource("Plugins.Misc.NewProducts.Fields.NumberOfDaysAsNew.Hint", "Number of days the product is set up as new");
-            
-            this.AddOrUpdatePluginLocaleResource("Plugins.Misc.NewProducts.Fields.Disable", "Disable");
-            this.AddOrUpdatePluginLocaleResource("Plugins.Misc.NewProducts.Fields.Disable.Hint", "Disable plugin");
+            _localizationService.AddOrUpdatePluginLocaleResource("Plugins.Misc.NewProducts.Fields.NumberOfDaysAsNew", "Number Of Days As New");
+            _localizationService.AddOrUpdatePluginLocaleResource("Plugins.Misc.NewProducts.Fields.NumberOfDaysAsNew.Hint", "Number of days the product is set up as new");
+
+            _localizationService.AddOrUpdatePluginLocaleResource("Plugins.Misc.NewProducts.Fields.Disable", "Disable");
+            _localizationService.AddOrUpdatePluginLocaleResource("Plugins.Misc.NewProducts.Fields.Disable.Hint", "Disable plugin");
 
             base.Install();
         }
@@ -43,11 +45,11 @@ namespace NopBrasil.Plugin.Misc.NewProducts
         {
             _settingService.DeleteSetting<NewProductsSettings>();
 
-            this.DeletePluginLocaleResource("Plugins.Misc.NewProducts.Fields.NumberOfDaysAsNew");
-            this.DeletePluginLocaleResource("Plugins.Misc.NewProducts.Fields.NumberOfDaysAsNew.Hint");
+            _localizationService.DeletePluginLocaleResource("Plugins.Misc.NewProducts.Fields.NumberOfDaysAsNew");
+            _localizationService.DeletePluginLocaleResource("Plugins.Misc.NewProducts.Fields.NumberOfDaysAsNew.Hint");
 
-            this.DeletePluginLocaleResource("Plugins.Misc.NewProducts.Fields.Disable");
-            this.DeletePluginLocaleResource("Plugins.Misc.NewProducts.Fields.Disable.Hint");
+            _localizationService.DeletePluginLocaleResource("Plugins.Misc.NewProducts.Fields.Disable");
+            _localizationService.DeletePluginLocaleResource("Plugins.Misc.NewProducts.Fields.Disable.Hint");
 
             base.Uninstall();
         }
